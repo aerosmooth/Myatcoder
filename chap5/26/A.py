@@ -9,8 +9,8 @@ def solve():
     Prime[1] = 1
     for i in range(2, 300001):
         if Prime[i] == 0:
-            k = 300001 // i
-            for j in range(2, k):
+            k = 300000 // i
+            for j in range(2, k + 1):
                 Prime[j * i] = 1
 
     for i in range(W):
