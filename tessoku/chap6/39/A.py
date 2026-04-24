@@ -6,7 +6,7 @@ def solve():
     N = int(input_data[0])
     A = []
     for i in range(N):
-        A.append([int(input_data[2 + 2 * i]), int(input_data[1 + 2 * i])])
+        A.append([int(input_data[1 + 2 * i]), int(input_data[2 + 2 * i])])
 
     A.sort()
     Answer = 0
