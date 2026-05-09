@@ -1,0 +1,5 @@
+3
+1 tanaka 49
+1 suzuki 50
+2 tanaka
+
