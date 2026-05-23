@@ -13,16 +13,24 @@ def solve():
         start = 2 + N + 2 * i
         X.append(int(input_data[start]))
         Y.append(int(input_data[start + 1]))
+    LEVELS = 30
+    dp = [[None] * N for i in range(LEVELS)]
+    for i in range(N):
+        dp[0][i] = A[i] - 1
 
-    caves = {}
-    caves[1] = 1
-    for i in range(1, 1 + N):
-        if A[caves[i] - 1] not in caves.values():
-            caves[i + 1] = A[caves[i] - 1]
+    for d in range(1, LEVELS):
+        for i in range(N):
+            dp[d][i] = dp[d - 1][dp[d - 1][i]]
 
-    print(caves)
     for i in range(Q):
-        print(caves[Y[i] + caves[X[i]]])
+        x = X[i]
+        y = Y[i]
+        current_place = x - 1
+        for i in range(LEVELS - 1, -1, -1):
+            if ((y >> i) & 1) == 1:
+                current_place = dp[i][current_place]
+
+        print(current_place + 1)
 
 
 if __name__ == "__main__":
